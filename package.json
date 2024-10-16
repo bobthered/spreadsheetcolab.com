@@ -11,7 +11,8 @@
 		"test": "vitest",
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write .",
-		"git:push": "vitest run && commit-and-tag-version && git push --follow-tags origin main"
+		"git:push": "vitest run && commit-and-tag-version && git push --follow-tags origin main",
+		"start": "node build"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^3.0.0",
