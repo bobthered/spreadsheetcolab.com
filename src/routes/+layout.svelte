@@ -16,6 +16,11 @@
 	);
 	theme.setComponentVariant(
 		'button',
+		'ghost',
+		'bg-transparent text-current hover:text-current focus:text-current hover:bg-slate-950/10 focus:bg-slate-950/10 focus:ring-slate-950/30 dark:hover:bg-slate-50/5 dark:focus:bg-slate-50/5 dark:focus:ring-slate-50/30'
+	);
+	theme.setComponentVariant(
+		'button',
 		'outline',
 		'bg-transparent hover:bg-transparent focus:bg-transparent text-primary-400 hover:text-primary-500 focus:text-primary-500 border-2 border-primary-400 hover:border-primary-500 focus:border-primary-500'
 	);
