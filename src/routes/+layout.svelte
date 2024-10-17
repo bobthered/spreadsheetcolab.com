@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { theme } from 'sveltewind';
+	import { Title } from 'sveltewind/components';
 	import { sveltewind } from 'sveltewind/themes';
 	import '../app.css';
 
@@ -29,6 +30,12 @@
 		'default',
 		'rounded-full px-8 bg-primary-400 hover:bg-primary-500 focus:bg-primary-500 text-gray-950 focus:ring-primary-400/30 text-slate-950 hover:text-slate-950'
 	);
+	theme.updateComponentVariant(
+		'input',
+		'default',
+		'dark:ring-offset-slate-50/5 focus:ring-offset-primary-400 focus:ring-primary-400/30 hover:ring-offset-primary-400 ring-offset-slate-950/10'
+	);
 </script>
 
+<Title base="spreadsheetcollab.com" />
 {@render children()}

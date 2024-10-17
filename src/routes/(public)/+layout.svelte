@@ -12,7 +12,9 @@
 </script>
 
 <Div class="flex flex-grow flex-col">
-	<Header class="min-h-[5rem] items-center px-8 py-4">
+	<Header
+		class="sticky top-0 min-h-[5rem] w-full items-center bg-slate-50 px-8 py-4 dark:bg-slate-950"
+	>
 		<Div>LOGO</Div>
 		<Div class="flex flex-grow justify-end">
 			<Portal>
@@ -52,6 +54,8 @@
 			</Div>
 		</Div>
 	</Header>
+
+	<slot />
 </Div>
 
 <Drawer
@@ -67,13 +71,30 @@
 		<Nav class="flex-grow flex-col overflow-auto">
 			<Div class="flex flex-grow flex-col overflow-auto">
 				{#each nav as { href, label }}
-					<A class="py-2 shadow-none hover:shadow-none focus:shadow-none" {href}>{label}</A>
+					<A class="py-2 shadow-none hover:shadow-none focus:shadow-none" {href} onclick={close}
+						>{label}</A
+					>
 				{/each}
 			</Div>
-			<A class="py-2 shadow-none hover:shadow-none focus:shadow-none" href="/sign-up">Sign Up</A>
-			<A class="py-2 shadow-none hover:shadow-none focus:shadow-none" href="/sign-in">Sign In</A>
+			<Div class="flex flex-col space-y-2">
+				<A
+					class={twMerge(
+						theme.getComponentVariant('button', 'default'),
+						theme.getComponentVariant('button', 'ghost'),
+						'shadow-none hover:shadow-none focus:shadow-none'
+					)}
+					href="/sign-up"
+					onclick={close}>Sign Up</A
+				>
+				<A
+					class={twMerge(
+						theme.getComponentVariant('button', 'default'),
+						'shadow-none hover:shadow-none focus:shadow-none'
+					)}
+					href="/sign-in"
+					onclick={close}>Sign In</A
+				>
+			</Div>
 		</Nav>
 	</Card>
 </Drawer>
-
-<slot />
