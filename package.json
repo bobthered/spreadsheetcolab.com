@@ -12,7 +12,8 @@
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write .",
 		"git:push": "vitest run && commit-and-tag-version && git push --follow-tags origin main",
-		"start": "node build"
+		"start": "node build",
+		"postinstall": "prisma generate"
 	},
 	"devDependencies": {
 		"@bobthered/tailwindcss-palette-generator": "^4.0.0",
