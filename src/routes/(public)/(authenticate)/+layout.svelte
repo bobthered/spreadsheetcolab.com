@@ -1,7 +1,5 @@
 <script lang="ts">
-	import { A, Button, Div, Fieldset, Form, H1, Input } from '$lib/components';
-	import { theme } from 'sveltewind';
-	import { twMerge } from 'tailwind-merge';
+	import { Div } from '$lib/components';
 
 	type Props = {
 		children?: any;
@@ -15,5 +13,15 @@
 			{@render children()}
 		</Div>
 	</Div>
-	<Div class="bg-primary-400 hidden md:flex" />
+	<Div class="bg-primary-400 hidden md:flex">
+		<video
+			class="object-cover mix-blend-screen invert saturate-0 dark:mix-blend-multiply dark:invert-0"
+			width="100%"
+			autoplay
+			loop
+			muted
+		>
+			<source src="/video/3130284-hd_1280_720_30fps.mp4" type="video/mp4" />
+		</video>
+	</Div>
 </Div>

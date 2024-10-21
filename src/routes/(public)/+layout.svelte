@@ -5,6 +5,7 @@
 	import { A, Button, Card, Div, Drawer, H1, H5, Header, Icon, Nav, Portal } from '$lib/components';
 
 	let close: () => void;
+	export let data;
 	const nav: { href: string; label: string }[] = [{ href: '/', label: 'Home' }];
 	let isVisible: boolean;
 	let open: () => void;
@@ -21,7 +22,7 @@
 				<Button
 					class={twMerge(
 						theme.getComponentVariant('button', 'icon'),
-						'fixed right-8 top-4 md:hidden'
+						'fixed right-8 top-4 z-[1] md:hidden'
 					)}
 					onclick={toggle}
 				>
@@ -35,21 +36,31 @@
 					{/each}
 				</Nav>
 				<Div class="flex space-x-2">
-					<A
-						class={twMerge(
-							theme.getComponentVariant('button', 'default'),
-							theme.getComponentVariant('button', 'ghost'),
-							'shadow-none hover:shadow-none focus:shadow-none'
-						)}
-						href="/sign-up">Sign Up</A
-					>
-					<A
-						class={twMerge(
-							theme.getComponentVariant('button', 'default'),
-							'shadow-none hover:shadow-none focus:shadow-none'
-						)}
-						href="/sign-in">Sign In</A
-					>
+					{#if data?.user}
+						<A
+							class={twMerge(
+								theme.getComponentVariant('button', 'default'),
+								'shadow-none hover:shadow-none focus:shadow-none'
+							)}
+							href="/sign-out">Sign Out</A
+						>
+					{:else}
+						<A
+							class={twMerge(
+								theme.getComponentVariant('button', 'default'),
+								theme.getComponentVariant('button', 'ghost'),
+								'shadow-none hover:shadow-none focus:shadow-none'
+							)}
+							href="/sign-up">Sign Up</A
+						>
+						<A
+							class={twMerge(
+								theme.getComponentVariant('button', 'default'),
+								'shadow-none hover:shadow-none focus:shadow-none'
+							)}
+							href="/sign-in">Sign In</A
+						>
+					{/if}
 				</Div>
 			</Div>
 		</Div>
@@ -63,7 +74,7 @@
 	bind:isVisible
 	bind:open
 	bind:toggle
-	class="flex w-full max-w-[calc(100vw_-_2rem)] flex-grow md:hidden"
+	class="z-[1] flex w-full max-w-[calc(100vw_-_2rem)] flex-grow md:hidden"
 	position="right"
 >
 	<Card class="relative w-full rounded-none">
@@ -77,23 +88,34 @@
 				{/each}
 			</Div>
 			<Div class="flex flex-col space-y-2">
-				<A
-					class={twMerge(
-						theme.getComponentVariant('button', 'default'),
-						theme.getComponentVariant('button', 'ghost'),
-						'shadow-none hover:shadow-none focus:shadow-none'
-					)}
-					href="/sign-up"
-					onclick={close}>Sign Up</A
-				>
-				<A
-					class={twMerge(
-						theme.getComponentVariant('button', 'default'),
-						'shadow-none hover:shadow-none focus:shadow-none'
-					)}
-					href="/sign-in"
-					onclick={close}>Sign In</A
-				>
+				{#if data?.user}
+					<A
+						class={twMerge(
+							theme.getComponentVariant('button', 'default'),
+							'shadow-none hover:shadow-none focus:shadow-none'
+						)}
+						href="/sign-out"
+						onclick={close}>Sign Out</A
+					>
+				{:else}
+					<A
+						class={twMerge(
+							theme.getComponentVariant('button', 'default'),
+							theme.getComponentVariant('button', 'ghost'),
+							'shadow-none hover:shadow-none focus:shadow-none'
+						)}
+						href="/sign-up"
+						onclick={close}>Sign Up</A
+					>
+					<A
+						class={twMerge(
+							theme.getComponentVariant('button', 'default'),
+							'shadow-none hover:shadow-none focus:shadow-none'
+						)}
+						href="/sign-in"
+						onclick={close}>Sign In</A
+					>
+				{/if}
 			</Div>
 		</Nav>
 	</Card>

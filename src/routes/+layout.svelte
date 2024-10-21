@@ -25,6 +25,7 @@
 		'outline',
 		'bg-transparent hover:bg-transparent focus:bg-transparent text-primary-400 hover:text-primary-500 focus:text-primary-500 border-2 border-primary-400 hover:border-primary-500 focus:border-primary-500'
 	);
+	theme.updateComponentVariant('a', 'default', 'shadow-primary-400');
 	theme.updateComponentVariant(
 		'button',
 		'default',
@@ -35,6 +36,7 @@
 		'default',
 		'dark:ring-offset-slate-50/5 focus:ring-offset-primary-400 focus:ring-primary-400/30 hover:ring-offset-primary-400 ring-offset-slate-950/10'
 	);
+	theme.updateComponentVariant('header', 'default', 'z-[1]');
 </script>
 
 <Title base="spreadsheetcollab.com" />
